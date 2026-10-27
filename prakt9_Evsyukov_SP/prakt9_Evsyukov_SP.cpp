@@ -58,10 +58,9 @@ void printMas(double* data, int size) {
     cout << endl;
 }
 
-void fillRandom(double* data, int size, double maxAmplitude) {
+void fillRandom(double* data, int size) {
     for (int i = 0; i < size; i++) {
-        double r = (rand() % 2001) / 1000.0 - 1.0; 
-        data[i] = r * maxAmplitude;
+        data[i] = ((rand() % 2001) - 1000) / 10.0;
     }
 }
 
@@ -91,7 +90,7 @@ int main() {
     double data[SIZE];
     double original[SIZE];
 
-    fillRandom(data, SIZE, 5.0);
+    fillRandom(data, SIZE);
     copyMas(original, data, SIZE);
 
     void (*processors[])(double*, int) = {
